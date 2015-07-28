@@ -1,0 +1,11 @@
+rm -rf dist/bin/ dist/conf/ dist/lib/
+activator clean compile stage
+cp -r target/universal/stage/bin/ dist/
+cd dist
+mkdir lib
+cd ..
+cp target/universal/stage/lib/appname-1.0-SNAPSHOT.jar dist/lib/
+cp target/universal/stage/lib/appname-1.0-SNAPSHOT-assets.jar dist/lib/
+cp -r target/universal/stage/conf/ dist/
+docker build -t dockerusername/reponame dist/
+

@@ -1,0 +1,15 @@
+This is your new Play application. The details are as below:
+=================================
+
+- Play version: 2.3.9
+- Database integration (MySql)
+- ORM: JPA (basedao has been created)
+- Evolutions plugin has been integrated. In conf/evolution/1.sql, add any sql and it will be executed on project start. Subsequently add 2.sql, 3.sql etc.
+- Amazon util has been included.
+- 3DES encryption is included too. Change the encryption key in app/util/encryption/TripleDESEncryption.java
+	- To encrypt any String in the project, use String encryptedString = EncryptionFactory.getInstance().encrypt("encryptme");
+	- To decrypt it back use, Sting decryptedString = EncryptionFactory.getInstance().encrypt(encryptedString);
+- To create the docker image of your app, use buildscript (./buildscript after chmod +x buildscript). 
+	-It will run a clean compile stage and copy the executable project jar, dependency and configuration to dist folder, which will then be included in the container.
+
+This file will be packaged with your application, when using `activator dist`.
